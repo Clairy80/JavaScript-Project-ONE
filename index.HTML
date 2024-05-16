@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slot-machine {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            border: 5px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .reels {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            animation: spin-reels 2s infinite linear;
+        }
+
+        .reel {
+            width: 100px;
+            height: 150px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin: 0 10px;
+            animation: spin-reel 2s infinite linear;
+        }
+
+        .symbol {
+            width: 80px;
+            height: 30px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .controls input[type="number"], .controls button {
+            margin: 5px;
+            padding: 5px 10px;
+        }
+
+        #result {
+            margin-top: 10px;
+        }
+
+        #play-again-btn {
+            margin-top: 20px;
+        }
+
+        @keyframes spin-reels {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin-reel {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slot-machine">
+        <div class="reels">
+            <!-- Reel 1 -->
+            <div class="reel">
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+            </div>
+            <!-- Reel 2 -->
+            <div class="reel">
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+            </div>
+            <!-- Reel 3 -->
+            <div class="reel">
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="deposit-btn">Deposit Money</button>
+            <input type="number" id="lines-input" placeholder="Number of lines">
+            <input type="number" id="bet-input" placeholder="Bet per line">
+            <button id="spin-btn">Spin</button>
+            <div id="balance">Balance: $0</div>
+            <div id="result"></div>
+            <button id="play-again-btn" style="display: none;">Play Again</button>
+        </div>
+    </div>
+    <script>
+        // JavaScript-Code zum Manipulieren des DOM
+
+        // Beispiel: Funktion, um den Kontostand zu aktualisieren
+        function updateBalance(newBalance) {
+            document.getElementById('balance').textContent = "Balance: $" + newBalance;
+        }
+
+        // Beispiel: Event-Listener für die "Spin" Schaltfläche
+        document.getElementById('spin-btn').addEventListener('click', function() {
+            // Hier kannst du deine Logik für das Spiel implementieren
+            // Zum Beispiel: Die Spielräder drehen, den Gewinn überprüfen, den Kontostand aktualisieren usw.
+            
+            // Hier wird nur der Kontostand aktualisiert (als Beispiel)
+            updateBalance(100); // Hier würdest du den neuen Kontostand haben
+        });
+    </script>
+</body>
+</html>

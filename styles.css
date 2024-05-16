@@ -1,0 +1,37 @@
+/* CSS für die Animation der Slot-Maschine */
+
+@keyframes spin-reels {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-reel {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.reels {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    animation: spin-reels 2s infinite linear;
+}
+
+.reel {
+    width: 100px;
+    height: 150px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 10px;
+    animation: spin-reel 2s infinite linear;
+}
